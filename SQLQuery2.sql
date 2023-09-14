@@ -28,3 +28,21 @@ FILEGROWTH = 5MB)
 SP_HELPDB QLSV_2
 ALTER DATABASE QLBH_1 
 MODIFY FILE (NAME = 'QLBH_LOG', SIZE = 10MB)
+use QLSach
+alter database QLSach
+set read_only
+-----------------------
+create database QLBH
+on primary
+(Name = QLBH_data1,
+filename= 'T:\BTSQL\QLBH\QLBH_data1.mdf',
+size = 10mb,
+maxsize = 40mb, 
+filegrowth= 1mb)
+log on 
+(name = 'QLBH_log',
+filename = 'T:\BTSQL\QLBH\QLBH_log.ldf',
+size = 6mb,
+maxsize = 8mb,
+filegrowth = 1mb)
+
